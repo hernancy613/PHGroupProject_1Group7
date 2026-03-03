@@ -1,0 +1,24 @@
+library(dplyr)
+
+Group7Variables %>%
+  group_by(smokeStat) %>%
+  summarise(
+    across(
+      c(Age,
+        AvgDrinksPerWeek,
+        WeeklyMinutesModerateExercise,
+        BMI,
+        QualityCare),
+      list(
+        Min = ~min(.),
+        Q1 = ~quantile(., 0.25),
+        Median = ~median(.),
+        Mean = ~mean(.),
+        Q3 = ~quantile(., 0.75),
+        Max = ~max(.),
+        SD = ~sd(.),
+        Variance = ~var(.)
+      ),
+      .names = "{.col}_{.fn}"
+    )
+  )
