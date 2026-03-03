@@ -1,0 +1,7 @@
+library(skimr)
+
+skim(Group7Variables[, c("Age",
+                         "AvgDrinksPerWeek",
+                         "WeeklyMinutesModerateExercise",
+                         "BMI",
+                         "QualityCare")])
