@@ -1,20 +1,29 @@
+###---B1---###
+
 my_summary_func <- function (data) {
-continuous_vars <- datal, c("Age",
-"AvgDrinksPerWeek"
-"WeeklyMinutesModerateExercise",
-"BMI"
-"QualityCare")]
-cat(".
-__- Five-Number Summary -
-print (summary (continuous_vars))
---\n" )
-cat("\n----- Means -----\n")
-print (colMeans (continuous_vars))
-cat ("\n----- Standard Deviations
-print(apply(continuous_vars, 2, sd))
-- \n")
-cat("\n----- Variances -
--\n" )
-print(apply(continuous_vars, 2, var))
+
+continuous_vars <- data[, c("Age",
+                            "AvgDrinksPerWeek",
+                            "WeeklyMinutesModerateExercise",
+                            "BMI")]
+cat("\n----- Five-Number Summary -----\n")
+  print(summary(continuous_vars))
+
+ cat("\n----- Means -----\n")
+  print(colMeans(continuous_vars, na.rm = TRUE))
+  
+  cat("\n----- Standard Deviations -----\n")
+  print(apply(continuous_vars, 2, sd, na.rm = TRUE))
+  
+  cat("\n----- Variances -----\n")
+  print(apply(continuous_vars, 2, var, na.rm = TRUE))
+}
+#function was created to produce the 5 number summary, mean, standard deviation, and variances
+
 # Run the function
 my_summary_func(Group7Variables)
+
+#Age demonstrates that most participants are middle aged, with the mean being 55 years old
+#Most participants drink 0-3 drinks on average per week however, the average was shifted due to outliers
+#The median exercise was 90 minutes per week
+#The average BMI indicated that people are slightly overweight
