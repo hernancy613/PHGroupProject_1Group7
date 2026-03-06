@@ -1,3 +1,4 @@
+# Analysis written by Bi Na
 library(readr)
 HINTSData_2020_clean <- read_csv("HINTSData_2020_clean.csv")
 Group7Variables <- HINTSData_2020_clean[,c("Age", #extracted the variables assigned to our group
